@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+      <style>
+        body {
+    margin:0;
+    padding:0;
+    background-color:#99f;
+}
+table:not(.tab) {
+    margin-top:110px;
+    width:400px;
+    height:400px;
+    background-color:skyblue;
+    border-spacing:0;
+}
+td {
+    margin:0;
+    padding:auto;
+    width:30px;
+    height:23px;
+    font-size:10px;
+    overflow:hidden;
+    text-align:center;
+    align-items: center;
+    align-content: center;
+    justify-content:center;
+    border:0.8px solid gold;
+}
+#cc {
+    background-color:green;
+}
+.tab{
+    width:60px;
+    height:60px;
+    border:1px;
+    margin:auto;
+    text-align:center;
+    border-spacing:0;
+}
+caption {
+    font-size:12px;
+    font-style:bold;
+    color:white;
+    text-shadow:3px 3px 4px black;
+}
+#p1,#p2,#p3,#p4{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center ;
+    display:flex;
+    justify-content:center;
+}
+#centr {
+    width:60px;
+    height:60px;
+    margin:auto;
+    transform:rotate(-45deg);
+    transform-origin:50% 50%;
+}
+
+#dice { 
+    position:fixed ;
+    top:10px;
+    left:10px;
+    width:82px;
+    height:82px;
+    margin:5px;
+    padding:5px;
+    border-radius:12px;
+    background-color:white;
+    border:solid 2px gray;
+}
+#dice:focus{
+    outline:none ;
+}
+img {
+    margin:0;
+    padding:0;
+    width:70px;
+    height:70px;
+}
+#tab1, #p1 {
+    background-color:#f99;
+}
+#tab2, #p2 {
+    background-color:#9f9;
+}
+#tab3, #p3 {
+    background-color:#39f;
+}
+#tab4, #p4 {
+    background-color:#fd9;
+}
+.plr1 {
+    background: radial-gradient(circle, #f99 50%, yellow 70%, silver 10%);
+}
+.plr2 {
+    background: radial-gradient(circle, #9f9 50%, yellow 70%, silver 10%);
+}
+.plr3 {
+    background: radial-gradient(circle, #39f 50%, yellow 70%, silver 10%);
+}
+.plr4 {
+    background: radial-gradient(circle, #fd9 50%, yellow 70%, silver 10%);
+}
+.plrw1{
+    background-color:red;
+}
+.plrw2{
+    background-color:green;
+}
+.plrw3{
+    background-color:blue;
+}
+.plrw4{
+    background-color:yellow;
+}
+
+.coin {
+    height:16px;
+    width:16px;
+    padding:0;   
+    margin:auto;
+    border-radius:50%;
+    text-align:center;
+    font-size:10px;
+    font-weight:bold;
+    font-style:italic;
+    color:white;    
+    display:inherit;
+    box-shadow:3px 3px 6px black; 
+}
+
+#coin11, #coin12, #coin13, #coin14 {
+    background: radial-gradient(circle, gold 5%, red 55%, silver 20%);
+}
+#coin21, #coin22, #coin23, #coin24 {
+    background: radial-gradient(circle, gold 5%, green 55%, silver 20%);
+}
+#coin31, #coin32, #coin33, #coin34 {
+    background: radial-gradient(circle, gold 5%, blue 55%, silver 20%);
+}
+#coin41, #coin42, #coin43, #coin44 {
+    background: radial-gradient(circle, gold 5%, orange 55%, silver 20%);
+}
+
+.cn {
+    height:16px;
+    width:16px;
+    padding:0;
+    margin:auto;
+    border-radius:10%;
+    text-align:center;
+    font-size:10px;
+    font-weight:bold;
+    font-style:italic;
+    color:white;
+    display:inherit;
+    box-shadow:3px 3px 6px black; 
+}
+#cn1 {
+    background: radial-gradient(circle, gold 5%, red 55%, silver 20%);
+}
+#cn2 {
+    background: radial-gradient(circle, gold 5%, green 55%, silver 20%);
+}
+#cn3 {
+    background: radial-gradient(circle, gold 5%, blue 55%, silver 20%);
+}
+#cn4 {
+    background: radial-gradient(circle, gold 5%, orange 55%, silver 20%);
+}
+
+.select_display {
+  left:45px;
+  top:150px;
+  padding:3px;
+  width:300px;
+  height:300px;
+  position:fixed;
+  text-align:center;
+  display: inline-block;
+  background-color:silver;
+  box-shadow: 0px 8px 16px 10px rgba(0,0,0,0.4);
+}
+
+.select {
+  padding:10px;
+  font-size:16px;
+  color:white;
+  border:none;
+  cursor:pointer;
+  border-radius:6px;
+  border:3px groove;
+  background-color:#4498ff;
+}
+
+.select:hover, .select:focus {
+  outline:none ;
+}
+
+      </style>
+
+    </head>
+    <body>
+            <table border="0">
+                
+<tr>
+    <td rowspan="6" colspan="6"><br/>
+    <div id="p1">
+    <table class="tab" id="tab1" border="1">
+    <caption>Player 1</caption>
+        <tr>
+            <td class="plr1" id="p1h1"></td>
+            <td class="plr1" id="p1h2"></td>
+        </tr>
+        <tr>
+            <td class="plr1" id="p1h3"></td>
+            <td class="plr1" id="p1h4"></td>
+        </tr>
+    </table>
+    </div>
+    </td>
+                <td class="plr1" id="c12"></td>                    
+                <td class="plr1" id="c13"></td> 
+                <td class="plr1" id="c14"></td>  
+    <td rowspan="6" colspan="6"><br/>
+    <div id="p2">
+    <table class="tab" id="tab2" border="1">
+    <caption>Player 2</caption>
+        <tr>
+            <td class="plr2" id="p2h1"></td>
+            <td class="plr2" id="p2h2"></td>
+        </tr>
+        <tr>
+            <td class="plr2" id="p2h3"></td>
+            <td class="plr2" id="p2h4"></td>
+        </tr>
+    </table>
+    </div>
+    </td>
+</tr> 
+<tr>
+    
+                <td class="plr1" id="c11"></td>
+                <td class="plrw2" id="p21"></td> 
+                <td class="safe plrw2" id="c15"></td>  
+    
+</tr> 
+<tr>
+    
+                <td class="plr1" id="c10"></td>
+                <td class="plrw2" id="p22"></td> 
+                <td class="plr2" id="c16"></td>  
+    
+</tr> 
+<tr>
+    
+                <td class="plr1" id="c9"></td>
+                <td class="plrw2" id="p23"></td> 
+                <td class="plr2" id="c17"></td>  
+    
+</tr> 
+<tr>
+    
+                <td class="plr1" id="c8"></td>
+                <td class="plrw2" id="p24"></td> 
+                <td class="plr2" id="c18"></td>  
+    
+</tr> 
+<tr>
+    
+                <td class="plr1" id="c7"></td>
+                <td class="plrw2" id="p25"></td> 
+                <td class="plr2" id="c19"></td>  
+    
+</tr> 
+<tr>
+                <td class="plr4" id="c1"></td>
+                <td class="safe plrw1" id="c2"></td>
+                <td class="plr1" id="c3"></td> 
+                <td class="plr1" id="c4"></td>  
+                <td class="plr1" id="c5"></td>
+                <td class="plr1" id="c6"></td>
+      <td id="cc" rowspan="3" colspan="3">
+      <table id="centr">
+      <tr>
+         <td class="plrw1" id="p16"></td>
+         <td class="plrw2" id="p26"></td>
+      </tr>
+      <tr>
+         <td class="plrw4" id="p46"></td>
+         <td class="plrw3" id="p36"></td>
+      </tr>
+      </table>
+      </td> 
+                <td class="plr2" id="c20"></td>
+                <td class="plr2" id="c21"></td>
+                <td class="plr2" id="c22"></td>
+                <td class="plr2" id="c23"></td> 
+                <td class="plr2" id="c24"></td>  
+                <td class="plr2" id="c25"></td>
+</tr> 
+<tr>
+                <td class="plr4" id="c52"></td>
+                <td class="plrw1" id="p11"></td>
+                <td class="plrw1" id="p12"></td> 
+                <td class="plrw1" id="p13"></td>  
+                <td class="plrw1" id="p14"></td>
+                <td class="plrw1" id="p15"></td>
+                <td class="plrw3" id="p35"></td>
+                <td class="plrw3" id="p34"></td>
+                <td class="plrw3" id="p33"></td>
+                <td class="plrw3" id="p32"></td> 
+                <td class="plrw3" id="p31"></td>  
+                <td class="plr2" id="c26"></td>
+</tr> 
+<tr>
+                <td class="plr4" id="c51"></td>
+                <td class="plr4" id="c50"></td>
+                <td class="plr4" id="c49"></td> 
+                <td class="plr4" id="c48"></td>  
+                <td class="plr4" id="c47"></td>
+                <td class="plr4" id="c46"></td>
+                <td class="plr3" id="c32"></td>
+                <td class="plr3" id="c31"></td>
+                <td class="plr3" id="c30"></td>
+                <td class="plr3" id="c29"></td> 
+                <td class="safe plrw3" id="c28"></td>  
+                <td class="plr2" id="c27"></td>
+</tr> 
+<tr>
+    <td rowspan="6" colspan="6"><br/>
+    <div id="p4">
+    <table class="tab" id="tab4" border="1">
+    <caption>Player 4</caption>
+        <tr>
+            <td class="plr4" id="p4h1"></td>
+            <td class="plr4" id="p4h2"></td>
+        </tr>
+        <tr>
+            <td class="plr4" id="p4h3"></td>
+            <td class="plr4" id="p4h4"></td>
+        </tr>
+    </table>
+    </div>
+    </td>
+                <td class="plr4" id="c45"></td>
+                <td class="plrw4" id="p45"></td> 
+                <td class="plr3" id="c33"></td>  
+    <td rowspan="6" colspan="6"><br/>
+    <div id="p3">
+    <table class="tab" id="tab3" border="1">
+    <caption>Player 3</caption>
+        <tr>
+            <td class="plr3" id="p3h1"></td>
+            <td class="plr3" id="p3h2"></td>
+        </tr>
+        <tr>
+            <td class="plr3" id="p3h3"></td>
+            <td class="plr3" id="p3h4"></td>
+        </tr>
+    </table>
+    </div>
+    </td>
+</tr> 
+<tr>
+   
+                <td class="plr4" id="c44"></td>
+                <td class="plrw4" id="p44"></td> 
+                <td class="plr3" id="c34"></td>  
+    
+</tr> 
+<tr>
+    
+                <td class="plr4" id="c43"></td>
+                <td class="plrw4" id="p43"></td> 
+                <td class="plr3" id="c35"></td>  
+    
+</tr> 
+<tr>
+    
+                <td class="plr4" id="c42"></td>
+                <td class="plrw4" id="p42"></td> 
+                <td class="plr3" id="c36"></td>  
+    
+</tr> 
+<tr>
+    
+                <td class="safe plrw4" id="c41"></td>
+                <td class="plrw4" id="p41"></td> 
+                <td class="plr3" id="c37"></td>  
+    
+</tr> 
+<tr>
+    
+                <td class="plr3" id="c40"></td>
+                <td class="plr3" id="c39"></td> 
+                <td class="plr3" id="c38"></td>  
+    
+              </tr> 
+            </table>
+     <button id="dice" onclick="diceBtn()" ><img src="https://i.ibb.co/7p6j2F5/dice-152178-1280.png"/>         
+     </button>
+     
+<div id="dr">      
+ <div class="select_display">
+ <p style="font-size:20px; margin-top:60px">Select the number of players!</p>
+ <button class="select">Select Players</button>
+ <form><br>
+  <label for="cars">Player Count:</label>
+  <select name="players" id="players">
+    <optgroup label="Select Players">
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+      <option value="4" selected>Four</option>
+    </optgroup>
+  </select><br><br>
+   <input type="submit" value="PLAY" class="select">
+  </form>
+ </div>  
+</body>
+</html>
